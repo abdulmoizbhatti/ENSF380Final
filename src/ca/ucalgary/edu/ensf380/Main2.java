@@ -25,7 +25,7 @@ public class Main2 extends JFrame implements ActionListener {
     private NewsPanel newsPanel;
     private TrainStationPanel trainStationPanel;
 
-    public Main2() {
+    public Main2(String cityCode) {
         setTitle("Subway Screen");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -42,7 +42,7 @@ public class Main2 extends JFrame implements ActionListener {
         advertisementPanel = new AdvertisementPanel();
         topPanel.add(advertisementPanel, BorderLayout.CENTER);
 
-        weatherTimePanel = new WeatherTimePanel();
+        weatherTimePanel = new WeatherTimePanel(cityCode);
         topPanel.add(weatherTimePanel, BorderLayout.EAST);
 
         add(topPanel, BorderLayout.NORTH);
@@ -133,6 +133,11 @@ public class Main2 extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(Main2::new);
+        if (args.length < 1) {
+            System.err.println("Please provide the city code as a command line argument.");
+            System.exit(1);
+        }
+        String cityCode = args[0];
+        SwingUtilities.invokeLater(() -> new Main2(cityCode));
     }
 }
