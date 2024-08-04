@@ -3,8 +3,9 @@ package ca.ucalgary.edu.ensf380;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,8 +17,9 @@ public class WeatherTimePanel extends JPanel {
     private JLabel timeLabel;
     private JLabel temperatureLabel;
     private Timer timer;
+    private ZoneId zoneId;
 
-    public WeatherTimePanel(String cityCode) {
+    public WeatherTimePanel(String city) {
         setPreferredSize(new Dimension(200, 300));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setLayout(new GridLayout(2, 1, 0, 0)); 
@@ -36,14 +38,16 @@ public class WeatherTimePanel extends JPanel {
         temperatureLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         add(temperatureLabel);
 
-        fetchWeatherData(cityCode);
+        this.zoneId = ZoneId.of("America/Edmonton");
+
+        fetchWeatherData(city);
         startClock();
     }
 
-    private void fetchWeatherData(String cityCode) {
+    private void fetchWeatherData(String city) {
         SwingUtilities.invokeLater(() -> {
             try {
-                Document doc = Jsoup.connect("http://wttr.in/" + cityCode + "?format=%C+%t").get();
+                Document doc = Jsoup.connect("http://wttr.in/" + city + "?format=%C+%t").get();
                 String weather = doc.text();
 
                 Pattern pattern = Pattern.compile("^(.*)\\s(\\+?\\-?\\d+°C)$");
@@ -72,7 +76,7 @@ public class WeatherTimePanel extends JPanel {
     private void updateClock() {
         SwingUtilities.invokeLater(() -> {
             try {
-                LocalDateTime now = LocalDateTime.now();
+                ZonedDateTime now = ZonedDateTime.now(zoneId);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mm:ss a"); 
                 String formattedTime = now.format(formatter);
                 timeLabel.setText(formattedTime);

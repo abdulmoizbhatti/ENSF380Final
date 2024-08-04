@@ -25,7 +25,7 @@ public class Main2 extends JFrame implements ActionListener {
     private NewsPanel newsPanel;
     private TrainStationPanel trainStationPanel;
 
-    public Main2(String cityCode) {
+    public Main2(String city, String keyword) {
         setTitle("Subway Screen");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -42,12 +42,12 @@ public class Main2 extends JFrame implements ActionListener {
         advertisementPanel = new AdvertisementPanel();
         topPanel.add(advertisementPanel, BorderLayout.CENTER);
 
-        weatherTimePanel = new WeatherTimePanel(cityCode);
+        weatherTimePanel = new WeatherTimePanel(city);
         topPanel.add(weatherTimePanel, BorderLayout.EAST);
 
         add(topPanel, BorderLayout.NORTH);
 
-        newsPanel = new NewsPanel();
+        newsPanel = new NewsPanel(keyword);
         add(newsPanel, BorderLayout.CENTER);
 
         trainStationPanel = new TrainStationPanel();
@@ -133,11 +133,12 @@ public class Main2 extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        if (args.length < 1) {
-            System.err.println("Please provide the city code as a command line argument.");
+        if (args.length < 2) {
+            System.err.println("Please provide the city and news keyword as command line arguments.");
             System.exit(1);
         }
-        String cityCode = args[0];
-        SwingUtilities.invokeLater(() -> new Main2(cityCode));
+        String city = args[0];
+        String keyword = args[1];
+        SwingUtilities.invokeLater(() -> new Main2(city, keyword));
     }
 }
