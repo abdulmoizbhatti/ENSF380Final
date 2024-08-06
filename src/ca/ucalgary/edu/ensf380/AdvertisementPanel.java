@@ -15,9 +15,10 @@ public class AdvertisementPanel extends JPanel {
     private boolean showMap = false;
     private static final int AD_DURATION = 10000; 
     private static final int MAP_DURATION = 5000;
+    private static final String MAP_IMAGE_PATH = "map/Trains.png";
 
     public AdvertisementPanel() {
-        setBackground(Color.BLUE);
+        setBackground(Color.BLACK); 
         setLayout(new BorderLayout());
         adLabel = new JLabel("", JLabel.CENTER);
         adLabel.setVerticalAlignment(JLabel.CENTER);
@@ -36,19 +37,21 @@ public class AdvertisementPanel extends JPanel {
     private void showNextAd() {
         if (adPaths.isEmpty()) return;
 
+        ImageIcon icon;
         if (showMap) {
-            adLabel.setText("Map Display");
-            adLabel.setIcon(null);
+            icon = new ImageIcon(MAP_IMAGE_PATH);
         } else {
             String adPath = adPaths.get(currentAdIndex);
-            ImageIcon adIcon = new ImageIcon(adPath);
-            Image img = adIcon.getImage();
-            Image resizedImg = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-            adIcon = new ImageIcon(resizedImg);
-            adLabel.setIcon(adIcon);
-            adLabel.setText("");
+            icon = new ImageIcon(adPath);
             currentAdIndex = (currentAdIndex + 1) % adPaths.size();
         }
+
+        Image img = icon.getImage();
+        Image resizedImg = img.getScaledInstance(adLabel.getWidth(), adLabel.getHeight(), Image.SCALE_SMOOTH);
+        icon = new ImageIcon(resizedImg);
+        adLabel.setIcon(icon);
+        adLabel.setText("");
+
         showMap = !showMap;
     }
 

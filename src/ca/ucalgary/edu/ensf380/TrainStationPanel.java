@@ -1,5 +1,12 @@
 package ca.ucalgary.edu.ensf380;
 
+//import javax.sound.sampled.AudioInputStream;
+//import javax.sound.sampled.AudioSystem;
+//import javax.sound.sampled.Clip;
+//import javax.sound.sampled.LineEvent;
+//import javax.sound.sampled.LineUnavailableException;
+//import javax.sound.sampled.UnsupportedAudioFileException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
@@ -138,3 +145,28 @@ public class TrainStationPanel extends JPanel {
         return stationCode + "(" + station.getStationName() + ")";
     }
 }
+
+    /*
+    private void playStationAnnouncement(String stationName, String lineName) {
+        try {
+            // Check if a specific line audio file exists, if not, use the general one
+            String sanitizedStationName = stationName.replaceAll("\\s", "");
+            File audioFile = new File("audio/" + sanitizedStationName + lineName + ".mp3");
+            if (!audioFile.exists()) {
+                audioFile = new File("audio/" + sanitizedStationName + ".mp3");
+            }
+            System.out.println("Looking for file: " + audioFile.getAbsolutePath());
+            if (audioFile.exists()) {
+                AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioStream);
+                clip.start();
+            } else {
+                System.err.println("Audio file not found for station: " + sanitizedStationName);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+*/
