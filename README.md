@@ -27,3 +27,9 @@ password: MoizBhatti.123
 
 Need to run this program through command line. Right click Main2 in src -> ca.ucalgary.edu.ensf380 and go to Run as: Run Configurations.
 The arguments will be: City (for which you want weather from), News (keyword you want to look up), TrainNumber (number out of the 12 trains you wanna track)
+
+You can change the timezone inside the WeatherTimePanel at: this.zoneID =
+
+In case API keys don't work: 
+Make free API key from newsapi.org
+
