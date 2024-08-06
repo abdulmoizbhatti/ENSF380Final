@@ -21,5 +21,5 @@ The database URL is jdbc:mysql://127.0.0.1:3306/ads
 user: root
 password: MoizBhatti.123
 
-Need to run this program through command line. Right click app and go to Run as: Run Configurations.
+Need to run this program through command line. Right click Main2 in src -> ca.ucalgary.edu.ensf380 and go to Run as: Run Configurations.
 The arguments will be: City (for which you want weather from), News (keyword you want to look up), TrainNumber (number out of the 12 trains you wanna track)
