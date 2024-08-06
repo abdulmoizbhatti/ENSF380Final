@@ -1,3 +1,8 @@
+/*
+ * Author: Moiz Bhatti
+ * Code for connecting database from MySQL
+ */
+
 package ca.ucalgary.edu.ensf380;
 
 import java.sql.Connection;

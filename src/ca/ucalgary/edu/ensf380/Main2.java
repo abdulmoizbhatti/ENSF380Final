@@ -1,3 +1,8 @@
+/*
+ * Author: Moiz Bhatti
+ * Main method where everything converges to run the app
+ */
+
 package ca.ucalgary.edu.ensf380;
 
 import javax.swing.*;

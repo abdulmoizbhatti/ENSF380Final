@@ -1,5 +1,11 @@
+/*
+ * Author: Moiz Bhatti
+ * Everything related to displaying the train station dynamic panel
+ */
+
 package ca.ucalgary.edu.ensf380;
 
+// imports that were going to be used for audio file, see end of file for more info
 //import javax.sound.sampled.AudioInputStream;
 //import javax.sound.sampled.AudioSystem;
 //import javax.sound.sampled.Clip;
@@ -146,10 +152,10 @@ public class TrainStationPanel extends JPanel {
     }
 }
 
-    /*
+    /* Code was going to be used to access mp3 files, but that file type was not allowed and wasn't able to convert them all to wav in time
+     * 
     private void playStationAnnouncement(String stationName, String lineName) {
         try {
-            // Check if a specific line audio file exists, if not, use the general one
             String sanitizedStationName = stationName.replaceAll("\\s", "");
             File audioFile = new File("audio/" + sanitizedStationName + lineName + ".mp3");
             if (!audioFile.exists()) {

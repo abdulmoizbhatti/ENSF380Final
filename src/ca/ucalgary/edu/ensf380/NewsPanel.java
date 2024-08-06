@@ -1,3 +1,8 @@
+/*
+ * Author: Moiz Bhatti
+ * Everything related to the news panel 
+ */
+
 package ca.ucalgary.edu.ensf380;
 
 import javax.swing.*;

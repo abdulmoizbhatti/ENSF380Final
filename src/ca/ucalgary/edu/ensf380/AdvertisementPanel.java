@@ -1,3 +1,8 @@
+/*
+ * Author: Moiz Bhatti
+ * Code that retrieves information from database, and train map, and has everything related to the advertisement panel section
+ */
+
 package ca.ucalgary.edu.ensf380;
 
 import javax.swing.*;
@@ -34,7 +39,7 @@ public class AdvertisementPanel extends JPanel {
         adPaths = DatabaseHandler.getAdvertisementPaths();
     }
 
-    private void showNextAd() {
+    public void showNextAd() {
         if (adPaths.isEmpty()) return;
 
         ImageIcon icon;

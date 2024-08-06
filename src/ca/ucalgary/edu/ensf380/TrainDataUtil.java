@@ -1,3 +1,8 @@
+/*
+ * Author: Moiz Bhatti
+ * Retrieving all the info for trains and their stations from the csv files and connecting it to the train station panel
+ */
+
 package ca.ucalgary.edu.ensf380;
 
 import java.io.BufferedReader;
