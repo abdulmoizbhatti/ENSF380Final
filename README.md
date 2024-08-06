@@ -6,17 +6,21 @@
 5. Clone URL in SourceTree: https://github.com/abdulmoizbhatti/ENSF380Final.git
 6. Import project into Eclipse
    
-7. Install mysql-connector
+7. Install mysql-connector: https://dev.mysql.com/downloads/connector/j/
 - add to ModulePath after rightclicking project and going to Build Path and configure build path
-8. Install json
+  
+8. Install json jar: 20210307
 - add to ClassPath after rightclicking project and going to Build Path and configure build path
-9. Install jsoup
+  
+9. Install jsoup jar: https://jsoup.org/download, core library
 - add to ClassPath after rightclicking project and going to Build Path and configure build path
+  
 10. Add JUNIT 5 for testing.
 - add to ClassPath after rightclicking project and going to Build Path and configure build path
 
 
 Also need to install MySQL to have the database.
+Database is called: ENSF380ProjectAds
 The database URL is jdbc:mysql://127.0.0.1:3306/ads
 user: root
 password: MoizBhatti.123
